@@ -1,5 +1,5 @@
 
-MAX_CONTACT = int(input("Enter the amount of contacts you want to add\n(Maximum Contacts: 20)"))
+MAX_CONTACT = int(input("Enter the amount of contacts you want to add\n(Maximum Contacts: 20) "))
 contacts = []
 
 
