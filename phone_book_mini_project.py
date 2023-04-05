@@ -3,8 +3,8 @@ MAX_CONTACT = int(input("Enter the amount of contacts you want to add "))
 contacts = []
 
 
-while True:
-    print("Please add contact:")
+for i in range(MAX_CONTACT):
+    print(f"\nPlease add contact {i + 1}:")
     name = input()
     number = input()
     address = input()
@@ -16,18 +16,24 @@ while True:
         'E-mail': email
     }
     contacts.append(CONTACT_INFO)
-    question = input("Do you want to search contact? ")
-    if question.lower() == "yes":
-        search = input("Search contact: ")
-        found_data = []
-        for searched_contact in contacts:
-            if searched_contact["Name"] == search:
-                found_data.append(searched_contact)
-                print(f"Contact found: {searched_contact}")
-                break
-            else:
-                continue
     MAX_CONTACT -= 1
     if MAX_CONTACT == 0:
         print(f"ALL CONTACTS ADDED: \n{contacts}")
+        break
+
+while True:
+    question = input("Do you want to search contact? yes/no ")
+    if question.lower() == "yes":
+        search = input("Search contact: ")
+        found_data = []
+        FORCE_BREAK = False
+        for searched_contact in contacts:
+            if searched_contact["Name"].lower() == search.lower():
+                FORCE_BREAK = True
+                found_data.append(searched_contact)
+                print(f"Contact found: {searched_contact}")
+                break
+            if FORCE_BREAK:
+                continue
+    if question.lower() == "no":
         break
