@@ -19,13 +19,14 @@ while True:
     question = input("Do you want to search contact? ")
     if question.lower() == "yes":
         search = input("Search contact: ")
-        searched_contact = len(name[::])
-        if len(search) == searched_contact:
-            print(f"Contact found - {search} - {CONTACT_INFO['Number']} - "
-                  f"{CONTACT_INFO['Address']} - {CONTACT_INFO['E-mail']}")
-        else:
-            print(f"No contacts found.")
-            pass
+        found_data = []
+        for searched_contact in contacts:
+            if searched_contact["Name"] == search:
+                found_data.append(searched_contact)
+                print(f"Contact found: {searched_contact}")
+                break
+            else:
+                continue
     MAX_CONTACT -= 1
     if MAX_CONTACT == 0:
         print(f"ALL CONTACTS ADDED: \n{contacts}")
