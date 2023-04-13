@@ -24,7 +24,6 @@ while True:
         found_data = []
         for searched_contact in contacts:
             if searched_contact["Name"].lower() == search.lower():
-                # FORCE_BREAK = True
                 found_data.append(searched_contact)
                 print(f"Contact found: {searched_contact}")
                 break
