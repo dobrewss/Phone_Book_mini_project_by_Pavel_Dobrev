@@ -16,24 +16,20 @@ for i in range(MAX_CONTACT):
         'E-mail': email
     }
     contacts.append(CONTACT_INFO)
-    MAX_CONTACT -= 1
-    if MAX_CONTACT == 0:
-        print(f"ALL CONTACTS ADDED: \n{contacts}")
-        break
 
 while True:
     question = input("Do you want to search contact? yes/no ")
     if question.lower() == "yes":
         search = input("Search contact: ")
         found_data = []
-        FORCE_BREAK = False
         for searched_contact in contacts:
             if searched_contact["Name"].lower() == search.lower():
-                FORCE_BREAK = True
+                # FORCE_BREAK = True
                 found_data.append(searched_contact)
                 print(f"Contact found: {searched_contact}")
                 break
-            if FORCE_BREAK:
-                continue
+        if searched_contact["Name"].lower() != search.lower():
+            print("No contact found.")
+            continue
     if question.lower() == "no":
         break
