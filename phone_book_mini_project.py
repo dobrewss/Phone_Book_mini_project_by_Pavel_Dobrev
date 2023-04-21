@@ -3,8 +3,8 @@ MAX_CONTACT = int(input("Enter the amount of contacts you want to add "))
 contacts = []
 
 
-for i in range(MAX_CONTACT):
-    print(f"\nPlease add contact {i + 1}:")
+for max_clients in range(MAX_CONTACT):
+    print(f"\nPlease add contact {max_clients + 1}:")
     name = input()
     number = input()
     address = input()
